@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="#">
+        <Link className="navbar-brand" to="/">
           <i className="bi bi-github d-inline-block" style={{ fontSize: "1.5rem"}}></i>
           <span className="ms-3 d-inline-block">GitHub Alt.</span>
         </Link>
@@ -16,24 +16,16 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="nav-link" to="#">Home</NavLink>
+              <NavLink className="nav-link" to="/">Home</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="#">Link</NavLink>
+              <NavLink className="nav-link" to="/perfil">Perfil</NavLink>
             </li>
             <li className="nav-item dropdown">
-              <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-          </NavLink>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><NavLink className="dropdown-item" to="#">Action</NavLink></li>
-                <li><NavLink className="dropdown-item" to="#">Another action</NavLink></li>
-                <li><hr className="dropdown-divider" /></li>
-                <li><NavLink className="dropdown-item" to="#">Something else here</NavLink></li>
-              </ul>
+              <NavLink className="nav-link" to="/pesquisa">Pesquisa</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link disabled" to="#" tabIndex="-1" aria-disabled="true">Disabled</NavLink>
+              <NavLink className="nav-link disabled" to="/contact" tabIndex="-1" aria-disabled="true">Disabled</NavLink>
             </li>
           </ul>
           <form className="d-flex">

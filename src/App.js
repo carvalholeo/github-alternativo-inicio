@@ -1,17 +1,27 @@
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom';
+import { useContext, useState, useEffect } from 'react';
+
+import { DarkModeContext } from './contexts/DarkModeContext';
 
 import Navbar from './components/Navbar';
 
-import Routes from './routes';
+import Router from './routes';
 
 function App() {
+  const [classeModoEscuro, setClasseModoEscuro] = useState('');
+  const {modoEscuro} = useContext(DarkModeContext);
+
+  useEffect(() => {
+    setClasseModoEscuro(modoEscuro)
+  }, [modoEscuro])
+
   return (
-    <div className="App">
+    <div className={classeModoEscuro}>
       <BrowserRouter>
         <Navbar />
-        <Routes />
+        <Router />
       </BrowserRouter>
     </div>
   );
