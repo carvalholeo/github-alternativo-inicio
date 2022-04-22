@@ -1,4 +1,5 @@
 import {useEffect, useState, useContext} from 'react';
+import { useParams } from 'react-router-dom';
 
 import clientGithub from '../services/clientGithub';
 
@@ -7,18 +8,19 @@ import { DarkModeContext } from '../contexts/DarkModeContext'
 function Perfil() {
   const [dadosPerfil, setDadosPerfil] = useState({});
   const [nomeBotao, setNomeBotao] = useState('Escuro');
-  const {mudarModoEscuro} = useContext(DarkModeContext)
+  const {mudarModoEscuro} = useContext(DarkModeContext);
+  const { usuario = 'carvalholeo' } = useParams();
 
   useEffect(() => {
     async function buscaPerfil() {
-      const resposta = await clientGithub.get('/user');
+      const resposta = await clientGithub.get(`/users/${usuario}`);
       const objetoFinal = resposta.data;
 
       setDadosPerfil(objetoFinal);
     }
 
     buscaPerfil()
-  }, []);
+  }, [usuario]);
 
   useEffect(() => {
     console.log(dadosPerfil);

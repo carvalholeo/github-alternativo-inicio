@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 
 import clientGithub from '../services/clientGithub';
 
@@ -65,12 +66,12 @@ function UserSearch() {
             return (
               <section className="card-group col-12 col-lg-3 col-md-4 col-sm-6" key={usuario.id}>
                 <article className="card-body">
-                  <a href={usuario.html_url}  style={{ maxWidth: "200px" }}>
+                  <Link to={`/perfil/${usuario.login}`}  style={{ maxWidth: "200px" }}>
                     <img src={usuario.avatar_url} alt={'Foto de perfil de ' + usuario.login} className="card-img-top" />
                     <section className="card-body">
                       <h5 className="card-title">{usuario.login}</h5>
                     </section>
-                  </a>
+                  </Link>
                 </article>
               </section>
             )

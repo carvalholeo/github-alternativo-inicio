@@ -11,6 +11,7 @@ function Router() {
     <div className="container-lg">
       <Routes>
         <Route path='/perfil' element={ <Perfil />} />
+        <Route path='/perfil/:usuario' element={ <Perfil />} />
         
         <Route path='/pesquisa' element={ <PesquisaUsuario /> }/>
 
